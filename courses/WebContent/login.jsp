@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>登录成绩管理系统</title>
+<title>登录</title>
 <%
 	String path = request.getContextPath();
 
@@ -202,10 +202,10 @@ body{
 </head>
 <body>
 <div id="header">
-	<h1>欢迎登录&nbsp;&nbsp;成绩管理系统</h1>
+	<h1>欢迎登录&nbsp;&nbsp;信息论课程网</h1>
 </div>
 <div id="content">
-	<div class="advert">
+	<!-- <div class="advert">
 		<div class="entry_wrapper">
 			<h2>便捷管理</h2>
 			<span>抛弃复杂繁琐，难以管理的excel,word表格，成绩管理，易如反掌</span>
@@ -219,10 +219,10 @@ body{
 			<span>电脑、平板、甚至在智能手机上都可以随时随地查看最新成绩</span>
 		</div>
 		<a href="#">了解更多...</a>
-	</div>
+	</div> -->
 	<div class="login_wrapper">
 		<div class="header">
-			登录<span> 成绩管理</span>
+			登录<span> </span>
 		</div>
 		
 		<div class="form_wrapper">

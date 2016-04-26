@@ -276,7 +276,7 @@ tr{
 	<div id="topNav">
 
 		<div class="title">
-			<a  class="plane">成绩管理系统 version 1.0</a>
+			<a  class="plane">信息论课程管理系统 version 1.0</a>
 		</div>
 
 		<div id="loginInfo">
