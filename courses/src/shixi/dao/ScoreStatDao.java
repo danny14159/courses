@@ -11,11 +11,8 @@ import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.service.EntityService;
 import org.nutz.trans.Atom;
 
-import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
-
 import shixi.bean.ScoreStat;
 import shixi.bean.Student;
-import shixi.bean.StudentTotalScore;
 
 @IocBean(fields = { "dao" })
 public class ScoreStatDao extends EntityService<ScoreStat> {
