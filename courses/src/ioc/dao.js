@@ -3,7 +3,7 @@ var ioc={
 			type : "org.apache.commons.dbcp.BasicDataSource",
 			fields : {
 				driverClassName : 'com.mysql.jdbc.Driver',
-				url : 'jdbc:mysql://115.28.158.206/score',
+				url : 'jdbc:mysql://115.28.158.206/score?characterEncoding=utf8',
 				username : 'score',
 				password : '123456'
 

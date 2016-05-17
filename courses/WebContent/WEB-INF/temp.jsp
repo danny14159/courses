@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -292,10 +293,12 @@ tr{
 	</div>
 
 				<ul id="menu">
-					<li class="menuItem"><span data-index="0">班级管理</span></li>
-					<li class="menuItem"><span data-index="1">学科管理</span></li>
-					<li class="menuItem"><span data-index="2">学生管理</span></li>
-					<li class="menuItem"><span data-index="3">考试管理</span></li>
+					<c:if test="${level eq 2 }">
+					<li class="menuItem"><span data-index="0" data-url="class">班级管理</span></li>
+					<!-- <li class="menuItem"><span data-index="1" data-url="subject">学科管理</span></li> -->
+					<li class="menuItem"><span data-index="2" data-url="student">学生管理</span></li>
+					<li class="menuItem"><span data-index="3" data-url="test">考试管理</span></li>
+
 					<li class="menuItem">
 						<span data-index="4">成绩管理</span>
 						<ul style="display: none">
@@ -304,9 +307,23 @@ tr{
 							<li><span class="glyphicon glyphicon-stats"></span>&nbsp;&nbsp;分析</li>
 						</ul>
 					</li>
-					<%if((Integer)session.getAttribute("level") == 1 || (Integer)session.getAttribute("level") == 2){ %>
-					<li class="menuItem"><span data-index="5">用户管理</span></li>
-					<%} %>
+					<li class="menuItem"><span data-index="5" data-url="user">用户管理</span></li>
+					<li class="menuItem"><span data-index="6" data-url="files">上传资料</span></li>
+					</c:if>
+					<c:if test="${level eq 3 }">
+						<li class="menuItem">
+							<span data-index="4">成绩管理</span>
+							<ul style="display: none">
+								<li><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;查询</li>
+							</ul>	
+						</li>
+						<li class="menuItem"><span data-index="" data-url="files">下载资料</span></li>
+						<!-- <li class="menuItem"><span data-index="" data-url="files">上传作业</span></li> -->
+						<li class="menuItem"><span data-index="" data-url="rebuild">申请重修</span></li>
+					</c:if>
+					<c:if test="${level eq 1 }">
+						<li class="menuItem"><span data-index="" data-url="rebuild">重修管理</span></li>
+					</c:if>
 				</ul>
 				
 			<div id="content">
@@ -315,14 +332,15 @@ tr{
 					<div id="home">
 					<h1><span id="time"></span>好，<%=session.getAttribute("username") %></h1>
 					<hr/>
-					<span class="blue">学生：</span>
+					<span class="blue">欢迎使用信息论课程系统！</span>
+					<!-- <span class="blue">学生：</span>
 					<span id="nClass">
 						
 					</span>
 					个班，共<span id="nStudent">
 						
-					</span>名学生
-					<div class="content" style="width:67%;margin-left:0;height:210px;">
+					</span>名学生 -->
+					<!-- <div class="content" style="width:67%;margin-left:0;height:210px;">
 						<div class="contentTitle">快捷入口</div>
 						<div class="contentBody">
 							<div class="entry prompt_text">
@@ -350,7 +368,7 @@ tr{
 								用户管理
 							</div>
 						</div>
-					</div>
+					</div> -->
 					</div>
 				</div>
 				<!-- <div id="content"
@@ -451,6 +469,7 @@ tr{
 				function() {
 					var self=$(this);
 					var index=self.attr('data-index');
+					var url=self.attr('data-url');
 					if(index == 4){
 						//toggle self.next('ul')
 						$(self.next('ul').slideToggle(300));
@@ -459,8 +478,8 @@ tr{
 					$('#menu').find('span').removeClass("active");
 					$('#menu>li>ul>li').removeClass('active');
 					self.addClass("active");
-					var urls = [ 'class', 'subject', 'student', 'test', , 'user' ];
-					loadPage(urls[index] + "/", 'ajaxData');
+					var urls = [ 'class', 'subject', 'student', 'test', , 'user','files' ];
+					loadPage(url + "/", 'ajaxData');
 				}
 		);
 		$('#menu>li>ul>li').click(function(){
@@ -537,13 +556,13 @@ tr{
 			else if(i == 4) $('#menu>li>ul>li:eq(0)').click();
 		});
 		
-		$.get('class/query',function(data){
+		/* $.get('class/query',function(data){
 			$('#nClass').text(data.length);
 		},'json');
 		
 		$.get('student/query',function(data){
 			$('#nStudent').text(100);
-		},'json');
+		},'json'); */
 	});
 	var loadPage = function(url, dst_id) {
 		
@@ -586,7 +605,7 @@ tr{
 	
 	
 	var getIdentity = function(level){
-		var ids = [null,'超级管理员','学校主任','年级主任','教师'];
+		var ids = [null,'超级管理员','教师','学生','教师'];
 		return ids[level];
 	}
 </script>
