@@ -14,7 +14,7 @@
 <base href="<%=basePath%>">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>成绩管理系统V1</title>
+<title>信息论课程管理系统</title>
 <link href="resources/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet" media="screen">
 <link href="resources/util.css" rel="stylesheet" media="screen">
@@ -320,9 +320,11 @@ tr{
 						<li class="menuItem"><span data-index="" data-url="files">下载资料</span></li>
 						<!-- <li class="menuItem"><span data-index="" data-url="files">上传作业</span></li> -->
 						<li class="menuItem"><span data-index="" data-url="rebuild">申请重修</span></li>
+						<li class="menuItem"><span data-index="" data-url="message">学生留言</span></li>
 					</c:if>
 					<c:if test="${level eq 1 }">
 						<li class="menuItem"><span data-index="" data-url="rebuild">重修管理</span></li>
+						<li class="menuItem"><span data-index="" data-url="message">学生留言</span></li>
 					</c:if>
 				</ul>
 				
