@@ -28,9 +28,9 @@
 					<div class="toolbg">
 
 						选择 年级： <select id="at_grade">
-							<option value="7">初一</option>
-							<option value="8">初二</option>
-							<option value="9">初三</option>
+							<option value="7">大一</option>
+							<option value="8">大二</option>
+							<option value="9">大三</option>
 						</select>
 
 						<button class="btn btn-default btn-xs" onclick="on_add(this);">添加班级</button>

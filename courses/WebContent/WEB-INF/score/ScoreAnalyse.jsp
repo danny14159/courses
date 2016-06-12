@@ -59,9 +59,9 @@ div.TabView{
 		<span class="prompt_text">成绩分析</span>
 			<div class="toolbg">
 				选择 年级： <select id="at_grade" onchange="initClass();">
-					<option value=7>初一</option>
-					<option value=8>初二</option>
-					<option value=9>初三</option>
+					<option value=7>大一</option>
+					<option value=8>大二</option>
+					<option value=9>大三</option>
 				</select>  考试： <select id="year" onchange="initExam();">
 					<option>2014-2015</option>
 					<option>2013-2014</option>
